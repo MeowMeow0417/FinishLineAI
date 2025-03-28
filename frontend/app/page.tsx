@@ -2,51 +2,63 @@
 import React from 'react'
 
 import Upcoming from "@/components/custom/Upcoming"
-import Schedule from "@/components/custom/Schedule"
-import GPSLeft from "@/components/custom/GPSLeft";
+import RaceTimeline from '@/components/custom/RaceTimeline';
 import DriverStandings from "@/components/custom/DriverStandings";
 import ModelAccuracy from "@/components/custom/ModelAccuracy";
-import Footer from "@/components/custom/Footer";
-import NavBar from '@/components/custom/NavBar'
+
+import { Card, CardHeader, CardTitle,  CardContent, CardDescription} from "@/components/ui/card";
+
+// Weather Impact Card
+const WeatherImpact = () => (
+  <Card className="p-4 rounded-xl shadow-md overflow-hidden text-sm">
+    <CardHeader>
+      <CardTitle className="text-md font-bold">🌦️ Weather Impact</CardTitle>
+      <CardDescription> <p className="">Track: <strong>Spa-Francorchamps</strong></p></CardDescription>
+    </CardHeader>
+    <CardContent>
+    <ul className="list-disc list-inside space-y-1">
+      <li>Rain Probability: <strong>65%</strong></li>
+      <li>Temperature: <strong>18°C</strong></li>
+      <li>Humidity: <strong>72%</strong></li>
+      <li>Wind Speed: <strong>12 km/h</strong></li>
+      <li>Track Temperature: <strong>24°C</strong></li>
+      <li>Air Pressure: <strong>1013 hPa</strong></li>
+      <li>Cloud Cover: <strong>80%</strong></li>
+      <li>UV Index: <strong>5 (Moderate)</strong></li>
+      <li>Visibility: <strong>8 km</strong></li>
+    </ul>
+    </CardContent>
+  </Card>
+);
+
+
+
 
 export default function Home() {
-
-
   return (
-    <section className="grid gap-4 p-6 grid-cols-12 auto-rows-min">
+    <div >
+      {/* Main Content: Optimized Grid Layout */}
+      <section className="grid grid-cols-12 gap-5 p-4">
 
-      {/* LEFT COLUMN */}
-      <article className="col-span-12 lg:col-span-3 md:col-span-6 sm:col-span-12 xs:col-span-12">
-        <div className="grid gap-4">
+        {/* LEFT COLUMN */}
+        <article className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col gap-5">
+        <RaceTimeline />
+          <WeatherImpact />
 
-          {/* Race Schedule */}
-          <Schedule />
-          {/* Model Accuracy */}
-          <ModelAccuracy />
-        </div>
-      </article>
+          {/* <NewsHighlights /> */}
+        </article>
 
-      {/* MIDDLE COLUMN */}
-      <article className="col-span-12 lg:col-span-6 md:col-span-6 sm:col-span-12 xs:col-span-12">
-        <div className="grid gap-4">
-          {/* GPs Left */}
-          <GPSLeft />
-          {/* Upcoming Race + Other Highlights */}
+        {/* MIDDLE COLUMN */}
+        <article className="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-6 flex flex-col gap-5">
           <Upcoming />
-          {/* Footer */}
-          <Footer />
-        </div>
-      </article>
+          <ModelAccuracy />
+        </article>
 
-      {/* RIGHT COLUMN */}
-      <article className="col-span-12 lg:col-span-3 md:col-span-6 sm:col-span-12 xs:col-span-12 lg:row-span-2">
-        <div className="grid gap-4">
-          {/* Nav Bar */}
-          <NavBar />
-          {/* Driver Standings */}
+        {/* RIGHT COLUMN */}
+        <article className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 flex flex-col gap-5">
           <DriverStandings />
-        </div>
-      </article>
-    </section>
-  );
+        </article>
+      </section>
+    </div>
+  )
 }

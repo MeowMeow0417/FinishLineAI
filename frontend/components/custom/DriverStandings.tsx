@@ -24,7 +24,7 @@ const DriverStandings = () => {
   ]
 
   return (
-    <Card className="w-full h-[626px] flex flex-col">
+    <Card className="w-full h-[650px] flex flex-col">
       <CardHeader className="flex items-center justify-between">
         <CardTitle className="text-2xl font-bold">Driver Standings</CardTitle>
         <Button variant="outline" className="text-sm">View All</Button>

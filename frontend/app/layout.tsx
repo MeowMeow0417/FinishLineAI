@@ -33,7 +33,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* <NavBar /> */}
+            <NavBar />
             {children}
               <div className="fixed top-4 right-4">
             </div>

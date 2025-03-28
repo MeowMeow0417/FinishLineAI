@@ -11,11 +11,17 @@ import {
 
 const NavBar = () => {
   return (
-        <Card className='w-full p-2 mr-0 '>
+    <section className=' flex justify-between p-2 items-center'>
+      <div className='p-2 '>
+        <h1 className='text-2xl font-bold'>FinishLineAI</h1>
+      </div>
+
+      <Card className='w-2xl p-2 '>
             <CardContent className='flex justify-end'>
                 <ThemeSwitcher />
             </CardContent>
         </Card>
+    </section>
   )
 }
 
